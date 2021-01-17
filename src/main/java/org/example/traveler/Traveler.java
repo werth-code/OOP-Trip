@@ -6,7 +6,7 @@ import java.util.List;
 public class Traveler {
     private String name;
     private Double money;
-    private String passport;
+    private Passport passport;
     private List<Destination> placesVisited;
     private Boolean noFlyList;
     private Boolean covidResults;
@@ -17,9 +17,8 @@ public class Traveler {
         this.money = money;
         this.covidResults = false;
         this.covidReport = new CovidReport();
-    }
-
-    public void bookATrip(Destination destination) {
+        this.noFlyList = false;
+        this.passport = new Passport();
     }
 
     public String getName() {
@@ -38,11 +37,11 @@ public class Traveler {
         this.money = money;
     }
 
-    public String getPassport() {
+    public Passport getPassport() {
         return passport;
     }
 
-    public void setPassport(String passport) {
+    public void setPassport(Passport passport) {
         this.passport = passport;
     }
 

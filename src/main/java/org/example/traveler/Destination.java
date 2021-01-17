@@ -2,22 +2,33 @@ package org.example.traveler;
 
 import org.example.traveler.exceptions.InfectionDateException;
 import org.example.traveler.exceptions.InfectionException;
+import org.example.traveler.exceptions.InsufficientFundsException;
 import org.example.traveler.exceptions.NoFlyListException;
 
+import java.util.logging.Logger;
+
 public class Destination {
+    Logger logger = Logger.getGlobal();
     private String name;
     private Double distance;
     private Double costPerMile;
     private Boolean requireCovidTest;
 
-    public Destination(String name, Double distance, Boolean requireCovidTest) {
+    public Destination(String name, Double distance, Double costPerMile, Boolean requireCovidTest) {
         this.name = name;
         this.distance = distance;
+        this.costPerMile = costPerMile;
         this.requireCovidTest = requireCovidTest;
     }
 
-    public Boolean bookATrip(Traveler traveler) { //// TODO: 1/17/21  
-        return false;
+    public void bookATrip(Traveler traveler) { //// TODO: 1/17/21
+        try {
+            checkEligibility(traveler);
+            enoughFundsForTrip(traveler);
+        } catch (InfectionDateException | InfectionException | NoFlyListException | InsufficientFundsException e) {
+            e.printStackTrace();
+        }
+        logger.fine("You Just Booked A Trip!");
     }
 
     public Boolean checkEligibility(Traveler traveler) throws InfectionException, NoFlyListException, InfectionDateException { //// TODO: 1/17/21 make these seperate functions that call each other.
@@ -29,11 +40,14 @@ public class Destination {
         return true;
     }
 
+    public void enoughFundsForTrip(Traveler traveler) throws InsufficientFundsException {
+        if(calculateTripCost() > traveler.getMoney()) throw new InsufficientFundsException();
+        System.out.println("Have A Wonderful Trip!");
+    }
+
     public Double calculateTripCost() {
         return this.distance * costPerMile;
     }
-
-
 
     public String getName() {
         return name;

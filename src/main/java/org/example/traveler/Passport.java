@@ -6,17 +6,15 @@ import java.util.UUID;
 
 public class Passport {
     private String id;
-    private Traveler traveler;
     private List<Destination> destinations;
 
 
-    public Passport(Traveler traveler) {
+    public Passport() {
         this.id = UUID.randomUUID().toString();
-        this.traveler = traveler;
         this.destinations = new ArrayList<>();
     }
 
-//    public Boolean checkForDestination(Traveler traveler) {
+//    public Boolean checkForDestination(Traveler traveler) { //// TODO: 1/17/21
 //        for(Traveler trav : getDestinations()) {
 //            if(trav.getName\.equals(destination)) return true;
 //        }
@@ -38,14 +36,6 @@ public class Passport {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Traveler getTraveler() {
-        return traveler;
-    }
-
-    public void setTraveler(Traveler traveler) {
-        this.traveler = traveler;
     }
 
 }
