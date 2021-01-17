@@ -11,6 +11,10 @@ public class Traveler {
     private Boolean noFlyList;
     private CovidReport covidResults;
 
+    public Traveler(String name) {
+
+    }
+
     public void bookATrip(Destination destination) {
 
     }
