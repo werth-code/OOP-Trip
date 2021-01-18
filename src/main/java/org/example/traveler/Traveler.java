@@ -68,7 +68,7 @@ public class Traveler {
     }
 
     public void setCovidResults(Boolean results) {
-        this.covidResults = covidResults;
+        this.covidResults = results;
     }
 
     public CovidReport getCovidReport() {

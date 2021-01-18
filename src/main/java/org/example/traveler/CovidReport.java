@@ -10,22 +10,23 @@ public class CovidReport {
         this.date = LocalDate.now();
     }
 
-    public void test(Traveler traveler) {
+    public Boolean test(Traveler traveler) {
         Random rand = new Random();
         int random = rand.nextInt(100);
-        if(random > 90) {
+        if(random > 85) {
             traveler.setCovidResults(true);
-            addToNoFlyList(traveler);
+            return true;
         }
+        return false;
     }
     
-    public Boolean isTestExpired() {     // // TODO: 1/17/21 Test this works
+    public Boolean isTestExpired() {
         int days = this.date.compareTo(LocalDate.now());
-        return days > 3;
+        return days < 3;
     }
 
-    public void addToNoFlyList(Traveler traveler) {
-        traveler.setNoFlyList(true);
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public LocalDate getDate() {

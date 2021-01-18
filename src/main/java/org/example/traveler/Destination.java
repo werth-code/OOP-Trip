@@ -41,7 +41,7 @@ public class Destination {
 
     public Boolean enoughFundsForTrip(Traveler traveler) throws InsufficientFundsException {
         if(calculateTripCost() > traveler.getMoney()) throw new InsufficientFundsException();
-        System.out.println("Have A Wonderful Trip!");
+        logger.info("Have A Wonderful Trip!");
         return true;
     }
 

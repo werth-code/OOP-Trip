@@ -5,7 +5,6 @@ import java.util.UUID;
 public class Passport {
     private String id;
 
-
     public Passport() {
         this.id = UUID.randomUUID().toString();
     }
