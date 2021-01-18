@@ -21,7 +21,7 @@ public class Destination {
         this.requireCovidTest = requireCovidTest;
     }
 
-    public void bookATrip(Traveler traveler) { //// TODO: 1/17/21
+    public void bookATrip(Traveler traveler) {
         try {
             traveler.getCovidReport().test(traveler);
             checkEligibility(traveler);
@@ -29,6 +29,7 @@ public class Destination {
         } catch (InfectionDateException | InfectionException | NoFlyListException | InsufficientFundsException e) {
             e.printStackTrace();
         }
+        traveler.getPlacesVisited().add(this.name);
         logger.fine("You Just Booked A Trip!");
     }
 

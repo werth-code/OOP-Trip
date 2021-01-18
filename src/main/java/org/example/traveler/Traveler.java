@@ -8,7 +8,7 @@ public class Traveler {
     private String name;
     private Double money;
     private Passport passport;
-    private List<Destination> placesVisited;
+    private List<String> placesVisited;
     private Boolean noFlyList;
     private Boolean covidResults;
     private CovidReport covidReport;
@@ -47,11 +47,11 @@ public class Traveler {
         this.passport = passport;
     }
 
-    public List<Destination> getPlacesVisited() {
+    public List<String> getPlacesVisited() {
         return placesVisited;
     }
 
-    public void setPlacesVisited(List<Destination> placesVisited) {
+    public void setPlacesVisited(List<String> placesVisited) {
         this.placesVisited = placesVisited;
     }
 

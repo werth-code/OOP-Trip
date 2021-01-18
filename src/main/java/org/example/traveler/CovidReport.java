@@ -22,7 +22,7 @@ public class CovidReport {
     
     public Boolean isTestExpired() {
         int days = this.date.compareTo(LocalDate.now());
-        return days < 3;
+        return days < -3;
     }
 
     public void setDate(LocalDate date) {
