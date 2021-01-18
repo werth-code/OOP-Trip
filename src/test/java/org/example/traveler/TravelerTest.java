@@ -4,9 +4,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.logging.Logger;
+
 import static org.junit.Assert.*;
 
 public class TravelerTest {
+    Logger logger = Logger.getGlobal();
     Traveler traveler;
     Destination florida;
 
@@ -40,7 +43,7 @@ public class TravelerTest {
     @Test
     public void getPassport() {
         String actual = traveler.getPassport().getId();
-        System.out.println(actual);
+        logger.info(actual);
 
         Assert.assertNotNull(actual);
     }

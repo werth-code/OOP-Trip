@@ -1,27 +1,20 @@
 package org.example;
 
 import org.example.traveler.Destination;
-import org.example.traveler.Passport;
 import org.example.traveler.Traveler;
 
-import java.time.LocalDate;
+import java.util.logging.Logger;
 
-/**
- * Hello world!
- *
- */
 public class App {
     public static void main( String[] args ) {
-
+        Logger logger = Logger.getGlobal();
 
         Traveler mark = new Traveler("Mark Meadow", 7700.00);
         Destination florida = new Destination("Florida", 1200.00, 2.5, true);
 
-        System.out.println(florida.calculateTripCost());
-
+        logger.info(florida.calculateTripCost().toString());
         florida.bookATrip(mark);
-
-        System.out.println(mark.getPlacesVisited());
+        logger.info(mark.getPlacesVisited().toString());
 
     }
 }

@@ -46,6 +46,7 @@ public class Destination {
         return true;
     }
 
+
     public Double calculateTripCost() {
         return this.distance * costPerMile;
     }
