@@ -40,24 +40,39 @@ public class TravelerTest {
     @Test
     public void getPassport() {
         String actual = traveler.getPassport().getId();
-        String expected = "523ce355-b378-49aa-9b06-07ec7ba58bab"; //// TODO: 1/17/21 Generating a new String each time.... 
+        System.out.println(actual);
+
+        Assert.assertNotNull(actual);
+    }
+
+    @Test
+    public void getPlacesVisited() {
+        Integer actual = traveler.getPlacesVisited().size();
+        Integer expected = 0;
 
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void getPlacesVisited() {
-    }
-
-    @Test
     public void getNoFlyList() {
+        Boolean actual = traveler.getNoFlyList();
+        Boolean expected = false;
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void getCovidResults() {
+        Boolean actual = traveler.getCovidResults();
+        Boolean expected = false;
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void getCovidReport() {
+        CovidReport actual = traveler.getCovidReport();
+
+        Assert.assertNotNull(actual);
     }
 }

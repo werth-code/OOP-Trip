@@ -1,6 +1,7 @@
 package org.example.traveler;
 
 import javax.print.attribute.standard.Destination;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Traveler {
@@ -19,6 +20,7 @@ public class Traveler {
         this.covidReport = new CovidReport();
         this.noFlyList = false;
         this.passport = new Passport();
+        this.placesVisited = new ArrayList<>();
     }
 
     public String getName() {

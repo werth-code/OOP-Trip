@@ -1,7 +1,6 @@
 package org.example.traveler;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Random;
 
 public class CovidReport {
@@ -20,7 +19,7 @@ public class CovidReport {
         }
     }
     
-    public Boolean isTestExpired() {        // // TODO: 1/17/21 Test this works 
+    public Boolean isTestExpired() {     // // TODO: 1/17/21 Test this works
         int days = this.date.compareTo(LocalDate.now());
         return days > 3;
     }

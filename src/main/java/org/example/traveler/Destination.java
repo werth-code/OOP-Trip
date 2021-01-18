@@ -23,6 +23,7 @@ public class Destination {
 
     public void bookATrip(Traveler traveler) { //// TODO: 1/17/21
         try {
+            traveler.getCovidReport().test(traveler);
             checkEligibility(traveler);
             enoughFundsForTrip(traveler);
         } catch (InfectionDateException | InfectionException | NoFlyListException | InsufficientFundsException e) {
@@ -31,18 +32,17 @@ public class Destination {
         logger.fine("You Just Booked A Trip!");
     }
 
-    public Boolean checkEligibility(Traveler traveler) throws InfectionException, NoFlyListException, InfectionDateException { //// TODO: 1/17/21 make these seperate functions that call each other.
-        if(this.requireCovidTest) {
-            if(traveler.getCovidResults()) throw new InfectionException();
-        }
+    public Boolean checkEligibility(Traveler traveler) throws InfectionException, NoFlyListException, InfectionDateException {
+        if(traveler.getCovidResults()) throw new InfectionException();
         if(traveler.getNoFlyList()) throw new NoFlyListException();
         if(traveler.getCovidReport().isTestExpired()) throw new InfectionDateException();
         return true;
     }
 
-    public void enoughFundsForTrip(Traveler traveler) throws InsufficientFundsException {
+    public Boolean enoughFundsForTrip(Traveler traveler) throws InsufficientFundsException {
         if(calculateTripCost() > traveler.getMoney()) throw new InsufficientFundsException();
         System.out.println("Have A Wonderful Trip!");
+        return true;
     }
 
     public Double calculateTripCost() {
@@ -81,6 +81,5 @@ public class Destination {
         this.requireCovidTest = requireCovidTest;
     }
 
-    public void allowToVisit(Traveler traveler) {}
 }
 
